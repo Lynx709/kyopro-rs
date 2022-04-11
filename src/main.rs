@@ -20,13 +20,8 @@ type Graph = Vec<Vec<usize>>;
 
 fn main() {
     input!{
-        n:String,
         k:usize,
     }
+    println!("{}",k);
 
-}
-
-fn 8to10 (n:String) -> i64{
-    let ans = 0;
-    let x = 
 }
