@@ -1,3 +1,5 @@
+// urls:https://qiita.com/aflc/items/f2be832f9612064b12c6
+
 use proconio::{fastout, input, marker::Chars};
 use std::collections::*;
 use std::collections::HashSet;
@@ -20,8 +22,18 @@ type Graph = Vec<Vec<usize>>;
 
 fn main() {
     input!{
-        k:usize,
+        mut s:String,
     }
-    println!("{}",k);
-
+    let mut frag = true;
+    let mut ans = 0;
+    while frag {
+        if !s.contains("BW"){
+            frag = false;
+        } else {
+            ans += s.match_indices("BW").count();
+            s = s.replace("BW", "WB");
+        }
+    }
+    println!("{}", ans);
+    
 }
