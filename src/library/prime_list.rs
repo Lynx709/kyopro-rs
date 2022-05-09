@@ -37,8 +37,6 @@ fn main() {
     }
 
     for i in prime_list{
-        if i < 100{
-            println!("{}", i);
-        }
+        println!("{}", i);
     }
 }

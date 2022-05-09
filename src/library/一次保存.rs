@@ -517,3 +517,111 @@ fn main() {
     println!("{}", ans);
 
 }
+
+use proconio::{fastout, input, marker::Chars};
+use std::collections::*;
+use std::collections::HashSet;
+use std::cmp;
+use core::cmp::*;
+use std::io;
+use num::integer::lcm;
+use libm::atan;
+use std::convert::TryInto;
+use num::integer::gcd;
+use num::integer::sqrt;
+
+fn main() {
+    input! {
+        x1:isize,
+        y1:isize,
+        x2:isize,
+        y2:isize,
+    }
+    let mut frag = false;
+    let xx = [1, 2, 2, 1, -1, -2, -2, -1];
+    let yy = [2, 1, -1, -2, -2, -1, 1 ,2];
+    for i in 0..8{
+        let prex = x1 + xx[i];
+        let prey = y1 + yy[i];
+        for j in 0..8{
+            if prex+xx[j] == x2 && prey+yy[j] == y2{
+                frag = true;
+            }
+        }
+    }
+    if frag{
+        println!("Yes");
+    } else {
+        println!("No");
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+use proconio::{fastout, input, marker::Chars};
+use std::{collections::*, vec}; use std::collections::HashSet;
+use std::cmp; use core::cmp::*; use std::io;
+use num::integer::lcm; use libm::atan;
+use std::convert::TryInto;
+use num::integer::gcd;
+use num::integer::sqrt;
+use std::boxed::Box;
+use std::collections::VecDeque;
+use permutohedron::LexicalPermutation;
+use std::io::stdout;
+use std::io::stdin;
+use std::io::Write;
+use text_io::read;
+use std::collections::BTreeMap;
+type Graph = Vec<Vec<usize>>;
+
+fn main() {
+    input!{
+        n:usize,
+        q:usize,
+        x:[usize; q],
+    }
+    let mut vec = Vec::new();
+    for i in 1..=n{
+        vec.push(i);
+    }
+    let mut a = 0;
+    for j in x{
+        let tmp = vec.binary_search(&j);
+        let mut tmper = 0;
+        if tmp.is_ok(){
+            tmper = tmp.unwrap();
+          }else{
+            tmper = tmp.unwrap_err();
+          }
+
+        
+        if tmper == n-1{
+            a = j;
+            vec[tmper] = vec[tmper-1];
+            vec[tmper-1] = a;
+        } else {
+            a = j;
+            vec[tmper] = vec[tmper+1];
+            vec[tmper+1] = a;
+        }
+    }
+    for i in vec{
+        print!("{} ",i);
+    }
+    println!();
+
+
+
+    
+    println!();
+}
